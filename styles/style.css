@@ -4,21 +4,23 @@ body {
   margin: 0;
   line-height: 1.6;
   min-height: 100vh;
-  background: linear-gradient(135deg, #2c3e50 0%, #4a5568 50%, #718096 100%);
+  /* Деловой градиент на фон всей страницы - сочетание с белым, серым и желтым */
+  background: linear-gradient(135deg, #1a1a2e 0%, #2d3436 50%, #636e72 100%);
   background-attachment: fixed;
   background-size: cover;
 }
 
 /* Контейнер для контента поверх градиента */
 .page-content {
-  background: linear-gradient(to bottom, rgba(255, 255, 255, 0.98) 0%, rgba(248, 248, 248, 0.95) 100%);
+  background: rgba(255, 255, 255, 0.97);
   min-height: 100vh;
   padding-bottom: 80px;
+  box-shadow: 0 0 50px rgba(0, 0, 0, 0.3);
 }
 
 /* Шапка */
 header {
-  background: linear-gradient(135deg, #2c3e50 0%, #4a5568 100%);
+  background: linear-gradient(135deg, #1a1a2e 0%, #2d3436 100%);
   padding: 1rem;
   text-align: center;
   display: flex;
@@ -54,7 +56,7 @@ header a:hover {
 
 .lang-dropdown-btn {
   background: linear-gradient(135deg, #f7d794 0%, #e1b12c 100%);
-  color: #2c3e50;
+  color: #1a1a2e;
   border: none;
   padding: 8px 16px;
   border-radius: 6px;
@@ -65,12 +67,13 @@ header a:hover {
   display: flex;
   align-items: center;
   gap: 8px;
+  box-shadow: 0 2px 8px rgba(247, 215, 148, 0.3);
 }
 
 .lang-dropdown-btn:hover {
   background: linear-gradient(135deg, #e1b12c 0%, #f7d794 100%);
   transform: translateY(-2px);
-  box-shadow: 0 4px 12px rgba(247, 215, 148, 0.4);
+  box-shadow: 0 4px 12px rgba(247, 215, 148, 0.5);
 }
 
 .lang-dropdown-btn::after {
@@ -133,10 +136,11 @@ header a:hover {
 
 .lang-dropdown-menu button:hover {
   background: linear-gradient(135deg, #f7d794 0%, #ffeaa7 100%);
+  color: #1a1a2e;
 }
 
 .lang-dropdown-menu button.active {
-  background: linear-gradient(135deg, #2c3e50 0%, #4a5568 100%);
+  background: linear-gradient(135deg, #1a1a2e 0%, #2d3436 100%);
   color: white;
 }
 
@@ -270,7 +274,7 @@ footer {
   display: inline-block; 
   padding: 10px 20px;
   background: linear-gradient(135deg, #f7d794 0%, #e1b12c 100%);
-  color: #2c3e50;
+  color: #1a1a2e;
   border: none;
   border-radius: 6px;
   font-weight: bold;
@@ -407,12 +411,12 @@ footer {
 
 .auth-form input:focus {
   outline: none;
-  border-color: #2c3e50;
-  box-shadow: 0 0 0 2px rgba(44, 62, 80, 0.2);
+  border-color: #1a1a2e;
+  box-shadow: 0 0 0 2px rgba(26, 26, 46, 0.2);
 }
 
 .auth-form button {
-  background: linear-gradient(135deg, #2c3e50 0%, #4a5568 100%);
+  background: linear-gradient(135deg, #1a1a2e 0%, #2d3436 100%);
   color: white;
   border: none;
   padding: 12px;
@@ -425,7 +429,7 @@ footer {
 
 .auth-form button:hover {
   transform: translateY(-2px);
-  box-shadow: 0 5px 15px rgba(44, 62, 80, 0.4);
+  box-shadow: 0 5px 15px rgba(26, 26, 46, 0.4);
 }
 
 .auth-toggle {
@@ -480,18 +484,19 @@ footer {
   margin-left: 20px;
   padding: 8px 16px;
   background: linear-gradient(135deg, #f7d794 0%, #e1b12c 100%);
-  color: #2c3e50;
+  color: #1a1a2e;
   border: none;
   border-radius: 6px;
   cursor: pointer;
   font-weight: bold;
   transition: all 0.3s ease;
+  box-shadow: 0 2px 8px rgba(247, 215, 148, 0.3);
 }
 
 #headerAuthBtn:hover {
   background: linear-gradient(135deg, #e1b12c 0%, #f7d794 100%);
   transform: translateY(-2px);
-  box-shadow: 0 4px 12px rgba(247, 215, 148, 0.4);
+  box-shadow: 0 4px 12px rgba(247, 215, 148, 0.5);
 }
 
 .error-message {

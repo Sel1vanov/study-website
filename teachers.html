@@ -83,6 +83,48 @@
     </footer>
     </div>
     
+    <!-- Модальное окно авторизации/регистрации -->
+    <div id="authModal" class="modal-overlay" onclick="handleModalClick(event)">
+        <div class="modal-window">
+            <button class="modal-close" onclick="closeAuthModal()">&times;</button>
+            <h2 id="modalTitle">Вход</h2>
+            
+            <!-- Форма входа -->
+            <form id="loginForm" class="auth-form" onsubmit="handleLogin(event)">
+                <input type="email" id="loginEmail" placeholder="Email" required>
+                <input type="password" id="loginPassword" placeholder="Пароль" required>
+                <button type="submit">Войти</button>
+                <div id="errorMessage" class="error-message"></div>
+                <div id="successMessage" class="success-message"></div>
+            </form>
+            
+            <!-- Форма регистрации -->
+            <form id="registerForm" class="auth-form" style="display: none;" onsubmit="handleRegister(event)">
+                <input type="text" id="registerName" placeholder="Ваше имя" required>
+                <input type="email" id="registerEmail" placeholder="Email" required>
+                <input type="password" id="registerPassword" placeholder="Пароль (мин. 6 символов)" required>
+                <input type="password" id="registerConfirmPassword" placeholder="Подтвердите пароль" required>
+                <button type="submit">Зарегистрироваться</button>
+                <div id="errorMessage" class="error-message"></div>
+                <div id="successMessage" class="success-message"></div>
+            </form>
+            
+            <!-- Информация о пользователе -->
+            <div id="userInfo" class="user-info">
+                <p><strong>Вы вошли как:</strong></p>
+                <p id="userName"></p>
+                <p id="userEmail" style="color: #666; font-size: 14px;"></p>
+                <button class="logout-btn" onclick="handleLogout()">Выйти</button>
+            </div>
+            
+            <!-- Переключатель между входом и регистрацией -->
+            <div class="auth-toggle" id="authToggle">
+                <span id="toggleText">Нет аккаунта?</span>
+                <a id="toggleLink" onclick="showRegister()">Зарегистрироваться</a>
+            </div>
+        </div>
+    </div>
+    
     <!-- Подключение скриптов авторизации -->
     <script src="auth.js"></script>
     <script src="modal.js"></script>
