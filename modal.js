@@ -70,6 +70,7 @@ function handleLogin(event) {
     if (result.success) {
         hideMessages();
         updateUserInfo();
+        updateHeaderAuth();
         document.getElementById('loginForm').style.display = 'none';
         document.getElementById('userInfo').classList.add('active');
         showMessage('success', result.message);
@@ -99,6 +100,7 @@ function handleRegister(event) {
         // Автоматический вход после регистрации
         loginUser(email, password);
         updateUserInfo();
+        updateHeaderAuth();
         document.getElementById('registerForm').style.display = 'none';
         document.getElementById('userInfo').classList.add('active');
         showMessage('success', result.message);
@@ -114,6 +116,7 @@ function handleLogout() {
     document.getElementById('loginForm').style.display = 'flex';
     document.getElementById('loginEmail').value = '';
     document.getElementById('loginPassword').value = '';
+    updateHeaderAuth();
     hideMessages();
 }
 
@@ -176,7 +179,6 @@ function updateHeaderAuth() {
     if (!authButton) {
         authButton = document.createElement('button');
         authButton.id = 'headerAuthBtn';
-        authButton.style.cssText = 'margin-left: 20px; padding: 8px 16px; background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); color: white; border: none; border-radius: 6px; cursor: pointer; font-weight: bold;';
         header.appendChild(authButton);
     }
     

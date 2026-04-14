@@ -4,22 +4,28 @@ body {
   margin: 0;
   line-height: 1.6;
   min-height: 100vh;
-  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  background: linear-gradient(135deg, #2c3e50 0%, #4a5568 50%, #718096 100%);
   background-attachment: fixed;
+  background-size: cover;
 }
 
 /* Контейнер для контента поверх градиента */
 .page-content {
-  background: rgba(255, 255, 255, 0.95);
+  background: linear-gradient(to bottom, rgba(255, 255, 255, 0.98) 0%, rgba(248, 248, 248, 0.95) 100%);
   min-height: 100vh;
   padding-bottom: 80px;
 }
 
 /* Шапка */
 header {
-  background-color: #333;
+  background: linear-gradient(135deg, #2c3e50 0%, #4a5568 100%);
   padding: 1rem;
   text-align: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 10px;
 }
 
 header a {
@@ -27,10 +33,111 @@ header a {
   text-decoration: none;
   margin: 0 15px;
   font-weight: bold;
+  transition: color 0.3s ease;
 }
 
 header a:hover {
-  color: #ffcc00; /* Цвет при наведении */
+  color: #f7d794; /* Золотисто-желтый цвет при наведении */
+}
+
+/* Контейнер для языкового селектора */
+.lang-selector-container {
+  position: relative;
+  margin-left: 20px;
+}
+
+/* Стиль для выпадающего списка языков */
+.lang-dropdown {
+  position: relative;
+  display: inline-block;
+}
+
+.lang-dropdown-btn {
+  background: linear-gradient(135deg, #f7d794 0%, #e1b12c 100%);
+  color: #2c3e50;
+  border: none;
+  padding: 8px 16px;
+  border-radius: 6px;
+  cursor: pointer;
+  font-weight: bold;
+  font-size: 14px;
+  transition: all 0.3s ease;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.lang-dropdown-btn:hover {
+  background: linear-gradient(135deg, #e1b12c 0%, #f7d794 100%);
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(247, 215, 148, 0.4);
+}
+
+.lang-dropdown-btn::after {
+  content: '▼';
+  font-size: 10px;
+  transition: transform 0.3s ease;
+}
+
+.lang-dropdown.active .lang-dropdown-btn::after {
+  transform: rotate(180deg);
+}
+
+.lang-dropdown-menu {
+  display: none;
+  position: absolute;
+  top: 100%;
+  right: 0;
+  background: white;
+  min-width: 120px;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+  border-radius: 8px;
+  overflow: hidden;
+  z-index: 100;
+  margin-top: 5px;
+}
+
+.lang-dropdown.active .lang-dropdown-menu {
+  display: block;
+  animation: slideDown 0.3s ease;
+}
+
+@keyframes slideDown {
+  from {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.lang-dropdown-menu button {
+  display: block;
+  width: 100%;
+  padding: 12px 16px;
+  background: none;
+  border: none;
+  text-align: left;
+  cursor: pointer;
+  font-size: 14px;
+  color: #2c3e50;
+  transition: background 0.2s ease;
+  border-bottom: 1px solid #f0f0f0;
+}
+
+.lang-dropdown-menu button:last-child {
+  border-bottom: none;
+}
+
+.lang-dropdown-menu button:hover {
+  background: linear-gradient(135deg, #f7d794 0%, #ffeaa7 100%);
+}
+
+.lang-dropdown-menu button.active {
+  background: linear-gradient(135deg, #2c3e50 0%, #4a5568 100%);
+  color: white;
 }
 
 /* Заголовок */
@@ -162,7 +269,20 @@ footer {
   align-self: center; 
   display: inline-block; 
   padding: 10px 20px;
-  box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.3);
+  background: linear-gradient(135deg, #f7d794 0%, #e1b12c 100%);
+  color: #2c3e50;
+  border: none;
+  border-radius: 6px;
+  font-weight: bold;
+  cursor: pointer;
+  box-shadow: 0 4px 12px rgba(247, 215, 148, 0.3);
+  transition: all 0.3s ease;
+}
+
+.course-button:hover {
+  background: linear-gradient(135deg, #e1b12c 0%, #f7d794 100%);
+  transform: translateY(-2px);
+  box-shadow: 0 6px 16px rgba(247, 215, 148, 0.5);
 }
 
 .r-img-flag img{
@@ -287,12 +407,12 @@ footer {
 
 .auth-form input:focus {
   outline: none;
-  border-color: #667eea;
-  box-shadow: 0 0 0 2px rgba(102, 126, 234, 0.2);
+  border-color: #2c3e50;
+  box-shadow: 0 0 0 2px rgba(44, 62, 80, 0.2);
 }
 
 .auth-form button {
-  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  background: linear-gradient(135deg, #2c3e50 0%, #4a5568 100%);
   color: white;
   border: none;
   padding: 12px;
@@ -305,7 +425,7 @@ footer {
 
 .auth-form button:hover {
   transform: translateY(-2px);
-  box-shadow: 0 5px 15px rgba(102, 126, 234, 0.4);
+  box-shadow: 0 5px 15px rgba(44, 62, 80, 0.4);
 }
 
 .auth-toggle {
@@ -315,7 +435,7 @@ footer {
 }
 
 .auth-toggle a {
-  color: #667eea;
+  color: #2c3e50;
   text-decoration: none;
   font-weight: bold;
   cursor: pointer;
@@ -323,6 +443,7 @@ footer {
 
 .auth-toggle a:hover {
   text-decoration: underline;
+  color: #e1b12c;
 }
 
 .user-info {
@@ -352,6 +473,25 @@ footer {
 
 .logout-btn:hover {
   background: #c0392b;
+}
+
+/* Кнопка авторизации в шапке */
+#headerAuthBtn {
+  margin-left: 20px;
+  padding: 8px 16px;
+  background: linear-gradient(135deg, #f7d794 0%, #e1b12c 100%);
+  color: #2c3e50;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  font-weight: bold;
+  transition: all 0.3s ease;
+}
+
+#headerAuthBtn:hover {
+  background: linear-gradient(135deg, #e1b12c 0%, #f7d794 100%);
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(247, 215, 148, 0.4);
 }
 
 .error-message {

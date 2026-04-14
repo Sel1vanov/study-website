@@ -13,9 +13,18 @@
             <a href="index.html" data-lang-key="main">Главная</a>
             <a href="courses.html" data-lang-key="courses">Курсы</a>
             <a href="teachers.html" data-lang-key="teach">Преподаватели</a>
-            <button onclick="changeLanguage('ru')">RU</button>
-            <button onclick="changeLanguage('en')">EN</button>
-            <button onclick="changeLanguage('lv')">LV</button>
+            
+            <!-- Выпадающий список языков -->
+            <div class="lang-dropdown" id="langDropdown">
+                <button class="lang-dropdown-btn" onclick="toggleLangDropdown()">
+                    <span id="currentLang">RU</span>
+                </button>
+                <div class="lang-dropdown-menu">
+                    <button onclick="changeLanguage('ru')" class="lang-option active" data-lang="ru">Русский</button>
+                    <button onclick="changeLanguage('en')" class="lang-option" data-lang="en">English</button>
+                    <button onclick="changeLanguage('lv')" class="lang-option" data-lang="lv">Latviešu</button>
+                </div>
+            </div>
     </header>
     <!-- далее идёт добавление атрибута data-lang-key к каждому блоку и строке -Бодя -->
     <div>

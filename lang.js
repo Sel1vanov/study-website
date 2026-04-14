@@ -80,7 +80,6 @@ const translations = {
         fra:"Franču valoda kurss",
         ser:"Serbu valoda kurss",
         ita:"Itāļu valoda kurss",
-        level:"От A1 до C1",
         level:"No A1 līdz C1",
         // преподаватели
         our_teach:"Mūsu skolotāji:",
@@ -112,9 +111,45 @@ function changeLanguage(lang) {
         }
     });
 
+    // Обновляем активный язык в выпадающем списке
+    updateLangDropdown(lang);
+    
     // Опционально: сохраняем выбор в браузере
     localStorage.setItem('selectedLanguage', lang);
 }
+
+// Обновление активного языка в выпадающем списке
+function updateLangDropdown(currentLang) {
+    // Обновляем текст кнопки
+    const currentLangSpan = document.getElementById('currentLang');
+    if (currentLangSpan) {
+        currentLangSpan.textContent = currentLang.toUpperCase();
+    }
+    
+    // Обновляем активный класс в меню
+    const langOptions = document.querySelectorAll('.lang-option');
+    langOptions.forEach(option => {
+        if (option.dataset.lang === currentLang) {
+            option.classList.add('active');
+        } else {
+            option.classList.remove('active');
+        }
+    });
+}
+
+// Переключение выпадающего списка
+function toggleLangDropdown() {
+    const dropdown = document.getElementById('langDropdown');
+    dropdown.classList.toggle('active');
+}
+
+// Закрытие dropdown при клике вне его
+document.addEventListener('click', function(event) {
+    const dropdown = document.getElementById('langDropdown');
+    if (dropdown && !dropdown.contains(event.target)) {
+        dropdown.classList.remove('active');
+    }
+});
 
 // При загрузке страницы проверяем сохраненный язык
 window.onload = () => {
